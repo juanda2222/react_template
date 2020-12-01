@@ -10,11 +10,11 @@ import {
 } from '../actions/todoActions';
 
 
-    interface todoType {
-        text: string,
-        id: string,
-        checked: boolean
-    }
+interface todoType {
+    text: string,
+    id: string,
+    checked: boolean
+}
 
 export interface todoReducerStateType {
     todoList: todoType[]
