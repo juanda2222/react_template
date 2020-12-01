@@ -2,19 +2,16 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-// types
-import { dataType, argType } from "./apis"
-
 
 // import redux related
 import { connect } from 'react-redux'
 import { appState,  } from "./redux/reducers"
 import { add_todo_to_list } from "./redux/actions"
 
-
 // assets
 import checked from "./assets/checked.png"
 import unchecked from "./assets/unchecked.png"
+
 interface AppProps {
   todoList: {
     text: string,
@@ -29,11 +26,11 @@ function App(props:AppProps) {
 
   const todoListElement = todoList.map((todo) => {
     return (
-    <div key={todo.text}>
+    <div key={todo.text} style={{display: "flex"}}>
       <p>
         {todo.text}
       </p>
-      <img src={checked} alt="checked"/>
+      <img style={{maxWidth:"20px", height: "auto"}} src={checked} alt="checked"/>
       </div>
     )
   })
