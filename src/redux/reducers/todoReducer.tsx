@@ -54,7 +54,6 @@ const todoDataReducer = (
                     text: action.value.todoContent
                 }],
             };
-            console.debug(newState)
             return newState
 
         case CHANGE_TODO_ITEM_STATE:

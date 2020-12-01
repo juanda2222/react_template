@@ -30,7 +30,13 @@ function App(props:AppProps) {
       <p>
         {todo.text}
       </p>
-      <img style={{maxWidth:"20px", height: "auto"}} src={checked} alt="checked"/>
+      {
+        todo.checked ? (
+          <img style={{maxWidth:"20px", height: "auto"}} src={checked} alt="checked"/>
+        ) : (
+          <img style={{maxWidth:"20px", height: "auto"}} src={unchecked} alt="unchecked"/>
+        )
+      }
       </div>
     )
   })
