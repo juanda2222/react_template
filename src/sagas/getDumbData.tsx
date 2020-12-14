@@ -1,8 +1,21 @@
 
 
-import { call, put, takeEvery,  takeLatest } from 'redux-saga/effects'
-import {   getDumbData  } from "../apis"
-import { ADD_TODO_TO_LIST, add_todo_to_list, add_todo_to_list_type } from "../redux/actions"
+import { 
+    call, 
+    put, 
+    // takeEvery,  
+    takeLatest 
+} from 'redux-saga/effects'
+
+import {   
+    getDumbData  
+} from "../apis"
+
+import { 
+    ADD_TODO_TO_LIST, 
+    add_todo_to_list, 
+    // add_todo_to_list_type 
+} from "../redux/actions"
 
 
 
@@ -13,7 +26,8 @@ function * getDumbDataSaga(action: {
     type: string
 }){
     //try {
-    const user = yield call(getDumbData, "data passed from sagas: "+action.todoContent);
+    const data = yield call(getDumbData, "data passed from sagas: " + action.todoContent);
+    console.log("Data received from api: ", data)
     yield put(add_todo_to_list(action));
    
     // // some other redux action that handles the async error

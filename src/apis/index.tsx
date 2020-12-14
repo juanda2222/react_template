@@ -18,9 +18,9 @@ export interface dataType {
 
 export type argType = string
 
-export function getDumbData(arg: argType) {
+export async function getDumbData(arg: argType) {
   // TODO: The backend logic
-  // await sleep(1200)
+  await sleep(1200)
   console.log("Main content fetched!")
 
   return [

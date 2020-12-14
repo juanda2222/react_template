@@ -13,7 +13,7 @@ const sagaMiddleware = createSagaMiddleware()
 
 const store = createStore(
     rootReducer,
-    //other enhancers
+    // other enhancers
     process.env.PRODUCTION === "true" ? (
         applyMiddleware( sagaMiddleware ) 
 
