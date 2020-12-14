@@ -39,3 +39,27 @@ export function getDumbData(arg: argType) {
   ] as dataType[]
 }
 
+// export type argType = string
+
+// export function setDumbData(arg: argType) {
+//   // TODO: The backend logic
+//   // await sleep(1200)
+//   console.log("Main content fetched!")
+
+//   return [
+//     {
+//       href: "/",
+//       text: "Some data about something"+arg,
+//     },
+//     {
+//       href: "/",
+//       text: "Some data about other things"+arg,
+//     },
+//     {
+//       href: "/",
+//       text: "more data"+arg,
+//     },
+//   ] as dataType[]
+// }
+
+

@@ -6,8 +6,10 @@ import rootReducer from '../reducers';
 import { composeWithDevTools } from "redux-devtools-extension";
 
 // middleware related:
-const sagaMiddleware = createSagaMiddleware()
+import rootSaga from "../../sagas"
 import createSagaMiddleware from 'redux-saga'
+
+const sagaMiddleware = createSagaMiddleware()
 
 const store = createStore(
     rootReducer,
@@ -16,6 +18,6 @@ const store = createStore(
     process.env.PRODUCTION === "true" ? undefined : composeWithDevTools() 
 );
 
-sagaMiddleware.run(mySaga)
+sagaMiddleware.run(rootSaga)
 
 export default store;
