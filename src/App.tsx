@@ -6,7 +6,7 @@ import './App.css';
 // import redux related
 import { connect } from 'react-redux'
 import { appState,  } from "./redux/reducers"
-import { add_todo_to_list } from "./redux/actions"
+import { add_todo_to_list_sagas } from "./redux/actions"
 
 // assets
 import checked from "./assets/checked.png"
@@ -26,7 +26,7 @@ function App(props:AppProps) {
 
   const todoListElement = todoList.map((todo) => {
     return (
-    <div key={todo.text} style={{display: "flex"}}>
+    <div key={todo.id} style={{display: "flex"}}>
       <p>
         {todo.text}
       </p>
@@ -72,7 +72,7 @@ const mapStateToProps = (state: appState, /*ownProps:ownPropsType*/) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     // explicitly forwarding arguments
-     saveTodo: (todoObject: {todoContent: string}) => dispatch(add_todo_to_list(todoObject))
+     saveTodo: (todoObject: {todoContent: string}) => dispatch(add_todo_to_list_sagas(todoObject))
   }
 }
 

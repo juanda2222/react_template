@@ -43,7 +43,7 @@ const todoDataReducer = (
     }, 
     action: add_todo_to_list_type | change_todo_item_state_type
     ) => {
-    console.log(state)
+    // console.log(state)
     switch (action.type) {
         case ADD_TODO_TO_LIST:
             console.debug("Add todo...")
