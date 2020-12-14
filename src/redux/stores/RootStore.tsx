@@ -14,8 +14,12 @@ const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
     rootReducer,
     //other enhancers
-    applyMiddleware(sagaMiddleware),
-    process.env.PRODUCTION === "true" ? undefined : composeWithDevTools() 
+    process.env.PRODUCTION === "true" ? (
+        applyMiddleware( sagaMiddleware ) 
+
+    ) : (
+        composeWithDevTools( applyMiddleware( sagaMiddleware ) )
+    )
 );
 
 sagaMiddleware.run(rootSaga)
