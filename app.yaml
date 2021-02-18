@@ -1,0 +1,36 @@
+
+
+
+#   standard apps take less time to deploy
+#   info https://cloud.google.com/appengine/docs/standard/python/config/appref
+
+# ---- the instance_class tag with AUTOMATIC scalability ----
+
+#  F1 (predeterminada)	256 MB	600 MHz	automático
+#  F2	512 MB	1.2 GHz	automático
+#  F4	1,024 MB	2.4 GHz	automático
+#  F4_HIGHMEM	2,048 MB	2.4 GHz	automático
+
+# ---- the instance_class tag with BASIC or MANUAL scalability ----
+#  B1	256 MB	600 MHz	manual, básico
+#  B2 (predeterminada)	512 MB	1.2 GHz	manual, básico
+#  B4	1,024 MB	2.4 GHz	manual, básico
+#  B4_HIGHMEM	2,048 MB	2.4 GHz	manual, básico
+#  B8	2,048 MB	4.8 GHz	manual, básico
+
+runtime: nodejs12 # or another supported version
+
+instance_class: F1
+
+env_variables:
+  BUCKET_NAME: "example-gcs-bucket"
+
+handlers:
+# Serve all static files with url ending with a file extension
+- url: /(.*\..+)$
+  static_files: build/\1
+  upload: build/(.*\..+)$
+# Catch all handler to index.html
+- url: /.*
+  static_files: build/index.html
+  upload: build/index.html
